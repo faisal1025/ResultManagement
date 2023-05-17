@@ -1,0 +1,67 @@
+<style>
+    .help-text{
+        color: red;
+        font-weight: 500;
+        font-size: smaller;
+    }
+</style>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h3 class="text-center" *ngIf="data.roll == 0">Create Student</h3>
+            <form action="/AddStudent" name="addStudent" onsubmit="return validateForm()" method="post">
+                <div class="mb-3">
+                    <label for="roll" class="form-label">Roll Number</label>
+                    <input type="number" class="form-control" id="roll" name="roll" required>
+                    <!-- <span class="help-text">Please enter a valid roll number</span> -->
+                </div>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                    <!-- <span class="help-text">Please enter a valid name</span> -->
+                </div>
+                <div class="mb-3">
+                    <label for="dob" class="form-label">Date of Birth</label>
+                    <input type="date" class="form-control" id="dob" name="dob" required>
+                    <span class="help-text" id="dob-helper"></span>
+                </div>
+                <div class="mb-3">
+                    <label for="score" class="form-label">Score</label>
+                    <input type="number" class="form-control" id="score" name="score" required>
+                    <!-- <span class="help-text">Please enter a valid score number</span> -->
+                </div>
+            
+                <button type="submit" class="btn btn-primary">Add Student</button>
+                
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function clearError(){
+        var elements = document.getElementsByClassName('help-text');
+        for(let element of elements){
+            element.innerHTML = "";
+        }
+    }
+    function setError(id, err){
+        var element = document.getElementById(id);
+        element.innerHTML = err;
+    }
+    const validateForm = ()=>{
+        let valid = true;
+        clearError();
+        var dob = document.forms['addStudent']['dob'].value;
+        let d = new Date(dob);
+        let cur = new Date();
+        if(d > cur){
+            setError('dob-helper', 'Date of birth should not be in future');
+            valid = false;
+        }
+        return valid;
+    }
+
+</script>

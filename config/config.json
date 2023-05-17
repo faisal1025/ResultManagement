@@ -1,0 +1,9 @@
+{
+  "development": {
+    "username": "faisal1025",
+    "password": "Query@@12345",
+    "database": "resultManagement",
+    "host": "mysqlserver-900.mysql.database.azure.com",
+    "dialect": "mysql"
+  }
+}

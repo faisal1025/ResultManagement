@@ -1,0 +1,19 @@
+{
+  "name": "result_management_application",
+  "version": "1.0.0",
+  "description": "This is result management application for the students and teacher uses",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js"
+  },
+  "author": "Faisal",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "express": "^4.18.2",
+    "express-handlebars": "^6.0.7",
+    "jsonwebtoken": "^9.0.0",
+    "mysql2": "^3.1.2",
+    "sequelize": "^6.29.0"
+  }
+}
